@@ -314,6 +314,7 @@ stages:
 
 - stage: Test_Stage
   displayName: Test Stage
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
   jobs:
   - job:
     displayName: Deploy to Test Job
@@ -324,6 +325,7 @@ stages:
           
 - stage: Prod_Stage
   displayName: Prod Stage
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
   jobs:
   - job:
     displayName: Deploy to Prod Job
